@@ -1,0 +1,99 @@
+= WokeLang Playground
+:toc: macro
+:icons: font
+
+// SPDX-License-Identifier: AGPL-3.0-or-later
+
+image:https://img.shields.io/badge/Language-WokeLang-pink[WokeLang]
+image:https://img.shields.io/badge/Focus-Human--Centric-yellow[Human-Centric]
+image:https://img.shields.io/badge/License-AGPL--3.0-blue[License]
+
+*Playground for WokeLang - Human-Centric Programming Language*
+
+toc::[]
+
+== Overview
+
+WokeLang is designed to be human-centric, prioritizing readability, accessibility, and inclusive design in programming.
+
+=== Key Features
+
+* **Natural Syntax**: Read like natural language
+* **Accessibility**: Screen reader friendly output
+* **Inclusive Naming**: Guidelines for inclusive code
+* **Error Messages**: Helpful, non-judgmental errors
+
+== Language Design
+
+=== Natural Language Syntax
+
+[source,wokelang]
+----
+-- Reads naturally
+define greeting as "Hello, World!"
+display greeting
+
+-- Conditional logic
+if user is authenticated then
+    show welcome_message
+otherwise
+    redirect to login_page
+----
+
+=== Accessible Code
+
+[source,wokelang]
+----
+-- Accessible output annotations
+@accessible
+@aria_label("User profile section")
+component UserProfile:
+    display user.name as heading level 1
+    display user.bio as paragraph
+----
+
+=== Inclusive Guidelines
+
+[source,wokelang]
+----
+-- Built-in inclusive naming suggestions
+-- The compiler suggests alternatives:
+-- "master/slave" -> "primary/replica"
+-- "whitelist/blacklist" -> "allowlist/blocklist"
+-- "dummy" -> "placeholder"
+
+configuration:
+    primary_server: "main.example.com"
+    replica_servers: ["backup1.example.com"]
+    allowlist: ["trusted.example.com"]
+----
+
+=== Helpful Errors
+
+[source]
+----
+-- Instead of: "Error: undefined variable 'nam'"
+-- WokeLang says:
+-- "It looks like 'nam' hasn't been defined yet.
+--  Did you mean 'name'? (defined on line 5)
+--  Here's how to define a new variable:
+--    define nam as your_value"
+----
+
+== Getting Started
+
+[source,bash]
+----
+guix install wokelang
+wokelang run greeting.woke
+----
+
+== Examples
+
+* `accessible/` - Accessibility-focused examples
+* `natural/` - Natural language syntax demos
+* `inclusive/` - Inclusive coding patterns
+
+== License
+
+SPDX-License-Identifier: AGPL-3.0-or-later
