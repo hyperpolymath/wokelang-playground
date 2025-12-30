@@ -10,7 +10,17 @@
           (date . "2025-12-30")
           (context . "Need human-centric programming language")
           (decision . "Prioritize readability, accessibility, and inclusive design")
-          (consequences . "Natural syntax, screen reader support, helpful errors")))))
+          (consequences . "Natural syntax, screen reader support, helpful errors")))
+       (adr-002
+         ((status . "accepted")
+          (date . "2025-12-30")
+          (title . "Hyperpolymath Language Policy")
+          (context . "Consistent language stack across all repositories")
+          (decision . "Use ReScript (not TypeScript), Deno (not npm/Node), Rust (not Go/Python)")
+          (consequences . ("Type safety via ReScript"
+                           "No npm dependencies"
+                           "Performance via Rust"
+                           "Python only for SaltStack"))))))
     (development-practices
       ((code-style . "rescript-standard")
        (security . "openssf-scorecard")
