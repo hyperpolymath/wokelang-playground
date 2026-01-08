@@ -1,0 +1,100 @@
+# SPDX-License-Identifier: AGPL-3.0-or-later
+# mustfile.toml - Configuration for Must
+# Task runner + template engine + enforcer
+# See: https://github.com/hyperpolymath/mustfile
+
+schema = "0.1"
+
+[project]
+name = "wokelang-playground"
+version = "0.1.0"
+license = "AGPL-3.0-or-later"
+author = "Jonathan D.A. Jewell"
+description = "Teaching playground for WokeLang - human-centric programming"
+
+[variables]
+copyright = "Copyright (C) 2025 Jonathan D.A. Jewell"
+license = "AGPL-3.0-or-later"
+registry = "ghcr.io/hyperpolymath"
+
+# Task definitions (delegate to just)
+[tasks]
+
+[tasks.build]
+description = "Build compiler and check CLI"
+commands = ["just build"]
+
+[tasks.test]
+description = "Run test suite"
+dependencies = ["build"]
+commands = ["just test"]
+
+[tasks.clean]
+description = "Clean build artifacts"
+commands = ["just clean"]
+
+[tasks.run]
+description = "Run a WokeLang file"
+commands = ["just run"]
+
+[tasks.lint]
+description = "Lint code with deno lint"
+commands = ["just lint"]
+
+[tasks.fmt]
+description = "Format code"
+commands = ["just fmt"]
+
+[tasks.check]
+description = "Run all checks (lint, format, types)"
+commands = ["just check"]
+
+[tasks.repl]
+description = "Start interactive REPL"
+commands = ["just repl"]
+
+[tasks.a11y-check]
+description = "Run accessibility checks"
+commands = ["just a11y-check"]
+
+# Requirements enforcement - Physical State contract
+[requirements]
+must_have = [
+    "LICENSE",
+    "README.adoc",
+    "SECURITY.md",
+    "justfile",
+    "Mustfile",
+    "mustfile.toml",
+    "config.ncl",
+    "src/",
+    "examples/",
+    "test/",
+]
+
+must_not_have = [
+    "Makefile",
+    "Dockerfile",
+    ".env",
+    "package-lock.json",
+    "yarn.lock",
+    "bun.lockb",
+    "tsconfig.json",
+]
+
+# Content requirements
+[requirements.content]
+"LICENSE" = ["GNU Affero General Public License"]
+
+# Enforcement rules
+[enforcement]
+license = "AGPL-3.0-or-later"
+copyright_holder = "Jonathan D.A. Jewell"
+podman_not_docker = true
+gitlab_not_github = false
+
+[enforcement.checks]
+no_trailing_whitespace = true
+no_tabs = false
+unix_line_endings = true
+max_line_length = 120
